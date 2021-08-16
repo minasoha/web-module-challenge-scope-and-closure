@@ -68,8 +68,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  return Math.floor(Math.random() * 3);
 }
 
 
@@ -87,9 +87,21 @@ Use the finalScore function below to do the following:
 }
 */ 
 // param innibingcb , number 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+
+function finalScore(inningcb, numberOfInnings){
+  let homeScore = 0;
+  let awayScore = 0;
+  for (let i = 0; i < numberOfInnings; i++){
+    homeScore = homeScore + inningcb();
+    awayScore = awayScore + inningcb();
+  }
+  return {
+    Home: homeScore,
+    Away: awayScore
+  }
 }
+console.log(finalScore(inning, 9));
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
@@ -98,8 +110,11 @@ Use the getInningScore() function below to do the following:
 
   // inning cd
   // returning an object with a score for home and away
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inningcb) {
+  return {
+    Home: inningcb(),
+    Away: inningcb()
+  }
 }
 
 
@@ -145,11 +160,31 @@ Use the scoreboard function below to do the following:
   */
 // get inningscorecb, scorecb, number
 // return an array
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScorecb, scorecb, numberOfInnings) {
+
+  const totalScore = [];
+
+
+  let homeScore = 0;
+  let awayScore = 0;
+
+
+  for (let i = 0; i < numberOfInnings; i++){
+    const keepingTrack = getInningScorecb(scorecb);
+    homeScore = homeScore + keepingTrack.Home;
+    awayScore = awayScore + keepingTrack.Away;
+    totalScore.push(`Inning ${i + 1}: Away ${keepingTrack.Away} - Home: ${keepingTrack.Home}`);
+  }
+   if (homeScore === awayScore){
+    totalScore.push(`This game will require extra innings: Away ${awayScore} - Home: ${homeScore}`);
+   }else{
+     totalScore.push(`Final Score: Away ${awayScore} - Home: ${homeScore}`);
+   }
+  return totalScore;
+
 }
 
-
+console.log(scoreboard(getInningScore,inning ));
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
