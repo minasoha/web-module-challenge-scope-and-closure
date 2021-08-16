@@ -28,11 +28,17 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+
+  counter 1 is in a block scope while counter 2 is on a global scope.
   
   2. Which of the two uses a closure? How can you tell?
+
+  counter 1, because the count is inside the function. 
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+     counter 1 would be preferable if you want more than 1 counter. counter 2 is preferable if you want to have a global counter.
 */
 
 // counter1 code
@@ -44,8 +50,8 @@ function counterMaker() {
 }
 
 const counter1 = counterMaker();
-
 // counter2 code
+
 let count = 0;
 
 function counter2() {
@@ -80,7 +86,7 @@ Use the finalScore function below to do the following:
   "Away": 5
 }
 */ 
-
+// param innibingcb , number 
 function finalScore(/*code Here*/){
   /*Code Here*/
 }
@@ -90,6 +96,8 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
+  // inning cd
+  // returning an object with a score for home and away
 function getInningScore(/*Your Code Here */) {
   /*Your Code Here */
 }
@@ -135,7 +143,8 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ]  
   */
-
+// get inningscorecb, scorecb, number
+// return an array
 function scoreboard(/* CODE HERE */) {
   /* CODE HERE */
 }
