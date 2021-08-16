@@ -59,6 +59,7 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+A closure happens when an inner function reaches out into an outer function to grab a value that is defined in the outer function.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -80,9 +81,14 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+ return function() because its accessing the parameter name on the outer function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The name variable is staying the same. The newRoll is changing. 
+
 c. What is the lexical scope of `newRoll`? 
 
+belongs to the return function inside personalDice.
 
 ### Task 3 - Stretch Goals
 
